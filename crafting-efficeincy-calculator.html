@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crafting Inventory Calculator</title>
+  <style>
+    body { font-family: sans-serif; padding: 1rem; }
+    fieldset { margin-bottom: 1rem; }
+    label { display: flex; margin: 0.3rem 0; gap: .5rem; align-items: center; }
+    label span { min-width: 2rem; }
+    label span:first-child {
+        text-align: right;
+    }
+    input[type="number"] {
+        font-family:'Courier New', Courier, monospace;
+        font-weight: bold;
+        font-size: 1.125rem;
+        width: 4rem;
+    }
+    .fw-bold { font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h2>k<sub>min</sub> Calculator</h2>
+<p><span class="fw-bold">k<sub>min</sub></span> is the count of an item you should craft in order to use up full stacks of the input item(s) <span class="fw-bold">I</span>. The <span class="fw-bold">input slots</span> and <span class="fw-bold">output slots</span> help determine the compression ratio of the recipe</p>
+<fieldset>
+  <label><span class="fw-bold">Ia:</span><input id="Ia" type="number" value="2"><span>count of input item <span class="fw-bold">a</span> required to craft 1 output</span></label>
+  <label><span class="fw-bold">Sa:</span><input id="Sa" type="number" value="5"><span>max stack size of input item <span class="fw-bold">a</span></span></label>
+  <label><span class="fw-bold">Ib:</span><input id="Ib" type="number" value="3"><span>count of input item <span class="fw-bold">b</span> required to craft 1 output</span></span></label>
+  <label><span class="fw-bold">Sb:</span><input id="Sb" type="number" value="5"><span>max stack size of input item <span class="fw-bold">b</span></span></label>
+  <button onclick="calcK()">Calculate k<sub>min</sub></button>
+  <p>k<sub>min</sub> = <span id="kResult">—</span></p>
+</fieldset>
+
+<h2>Input Slots</h2>
+<p>Calculate the input slots used per input item. This should be done separately for each item type above.</p>
+<fieldset>
+  <label><span class="fw-bold">k: </span><input id="kInput" type="number" value="5"><span>the value for <span class="fw-bold">k<sub>min</sub></span> calculated above</span></label>
+  <label><span class="fw-bold">I: </span><input id="IInput" type="number" value="2"><span>count of input item <span class="fw-bold">i</span> required to craft 1 output</span></label>
+  <label><span class="fw-bold">S: </span><input id="SInput" type="number" value="5"><span>max stack size of input item <span class="fw-bold">i</span></span></label>
+  <button onclick="calcInputSlots()">Calculate</button>
+  <p>Inventory slots used = <span id="inputResult">—</span></p>
+</fieldset>
+
+<h2>Output Slots</h2>
+<fieldset>
+  <label><span class="fw-bold">k: </span><input id="kOutput" type="number" value="5"><span>the value for <span class="fw-bold">k<sub>min</sub></span> calculated above</span></label>
+  <label><span class="fw-bold">Y: </span><input id="YOutput" type="number" value="1"><span>yield per craft (should always be 1)</span></label>
+  <label><span class="fw-bold">SY: </span><input id="SYOutput" type="number" value="1"><span>max stack size of output crafted item(s)<span class="fw-bold">Y</span></span></label>
+  <button onclick="calcOutputSlots()">Calculate</button>
+  <p>Output Slots = <span id="outputResult">—</span></p>
+</fieldset>
+
+<script>
+  // Greatest Common Divisor
+  function gcd(a, b) {
+    return b === 0 ? Math.abs(a) : gcd(b, a % b);
+  }
+
+  // Least Common Multiple
+  function lcm(a, b) {
+    return Math.abs(a * b) / gcd(a, b);
+  }
+
+  // k_min calculation
+  function kMin(inputs) {
+    return inputs
+      .map(({ I, S }) => S / gcd(I, S))
+      .reduce((a, b) => lcm(a, b));
+  }
+
+  function calcK() {
+    const inputs = [
+      { I: +Ia.value, S: +Sa.value },
+      { I: +Ib.value, S: +Sb.value }
+    ];
+    kResult.textContent = kMin(inputs);
+  }
+
+  function calcInputSlots() {
+    const k = +kInput.value;
+    const I = +IInput.value;
+    const S = +SInput.value;
+    inputResult.textContent = (k * I) / S;
+  }
+
+  function calcOutputSlots() {
+    const k = +kOutput.value;
+    const Y = +YOutput.value;
+    const SY = +SYOutput.value;
+    outputResult.textContent = Math.ceil((k * Y) / SY);
+  }
+</script>
+
+</body>
+</html>
