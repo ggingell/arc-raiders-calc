@@ -23,6 +23,15 @@
       label span:first-child {
         text-align: right;
       }
+      input {
+        border: 1px solid #333;
+        border-radius: 2px;
+        padding: 2px;
+      }
+      input.invalid {
+        border: 1px solid red;
+        color: red;
+      }
       input[type="number"] {
         font-family: "Courier New", Courier, monospace;
         font-weight: bold;
@@ -47,27 +56,50 @@
     <fieldset>
       <label
         ><span class="fw-bold">Ia:</span
-        ><input id="Ia" type="number" value="2" /><span
+        ><input
+          id="Ia"
+          type="number"
+          value="2"
+          title="Integer from 0 to 100"
+          onchange="checkInputIsValidItemCount('Ia')"
+        /><span
           >count of input item <span class="fw-bold">a</span> required to craft
           1 output</span
         ></label
       >
       <label
         ><span class="fw-bold">Sa:</span
-        ><input id="Sa" type="number" value="5" /><span
+        ><input
+          id="Sa"
+          type="number"
+          value="5"
+          title="Integer from 0 to 100"
+          onchange="checkInputIsValidItemCount('Sa')"
+        /><span
           >max stack size of input item <span class="fw-bold">a</span></span
         ></label
       >
       <label
         ><span class="fw-bold">Ib:</span
-        ><input id="Ib" type="number" value="3" /><span
+        ><input
+          id="Ib"
+          type="number"
+          value="3"
+          title="Integer from 0 to 100"
+          onchange="checkInputIsValidItemCount('Ib')"
+        /><span
           >count of input item <span class="fw-bold">b</span> required to craft
           1 output</span
         ></label
       >
       <label
         ><span class="fw-bold">Sb:</span
-        ><input id="Sb" type="number" value="5" /><span
+        ><input
+          id="Sb"
+          type="number"
+          value="5"
+          onchange="checkInputIsValidItemCount('Sb')"
+        /><span
           >max stack size of input item <span class="fw-bold">b</span></span
         ></label
       >
@@ -148,6 +180,26 @@
         return inputs
           .map(({ I, S }) => S / gcd(I, S))
           .reduce((a, b) => lcm(a, b));
+      }
+
+      function checkInputIsValidItemCount(inputId) {
+        const inputNode = document.getElementById(inputId);
+        if (!inputNode) {
+          console.error("Cannot find input with id ", inputId);
+          return false;
+        }
+
+        const { value } = inputNode;
+        const isValid =
+          /^\d+$/.test(value) &&
+          parseInt(value, 10) > 0 &&
+          parseInt(value, 10) <= 100;
+        if (isValid) {
+          inputNode.classList.remove("invalid");
+        } else {
+          inputNode.classList.add("invalid");
+        }
+        return isValid;
       }
 
       function calcK() {
