@@ -93,11 +93,24 @@
         border: 2px solid #88f;
         color: #000;
       }
-      #kResult {
+      #kResult,
+      #compresionRatioResult {
         font-family: "Courier New", Courier, monospace;
         font-weight: bold;
-        font-size: 1.5rem;
-        color: #080;
+        font-size: 1.75rem;
+        color: #33f;
+      }
+      #compresionRatioResult {
+        color: #333;
+      }
+      #compresionRatioResult.neutral {
+        color: #333;
+      }
+      #compresionRatioResult.good {
+        color: #3a3;
+      }
+      #compresionRatioResult.bad {
+        color: #e66;
       }
       .variable-label {
         font-family: Georgia, Times, "Times New Roman", serif;
@@ -469,8 +482,13 @@
         });
         outputSlotsUsedResult.textContent = outputSlotsUsed;
 
-        compresionRatioResult.textContent =
-          totalInputSlotsUsed / outputSlotsUsed;
+        const compRatio = Number(totalInputSlotsUsed / outputSlotsUsed);
+        compresionRatioResult.textContent = compRatio.toPrecision(5);
+        compresionRatioResult.setAttribute("class", "");
+
+        if (compRatio > 1) compresionRatioResult.classList.add("good");
+        else if (compRatio < 1) compresionRatioResult.classList.add("bad");
+        else compresionRatioResult.classList.add("neutral");
       }
 
       function calcInputSlots({ k, I, S }) {
