@@ -8,8 +8,19 @@
         font-family: sans-serif;
         padding: 1rem;
       }
+      form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
       fieldset {
         margin-bottom: 1rem;
+        position: relative;
+      }
+      form fieldset:last-child {
+        /* dispplay below the flex row items*/
+        border:none;
+        flex: 0 0 100%;
       }
       label {
         display: flex;
@@ -38,6 +49,18 @@
         font-size: 1.125rem;
         width: 4rem;
       }
+      label.item-input-checkbox {
+        position: absolute;
+        top: -0.45rem;
+        right: 0;
+        padding: .5rem;
+      }
+      #kResult {
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #080;
+      }
       .fw-bold {
         font-weight: bold;
       }
@@ -53,59 +76,101 @@
       <span class="fw-bold">output slots</span> help determine the compression
       ratio of the recipe
     </p>
-    <fieldset>
-      <label
-        ><span class="fw-bold">Ia:</span
-        ><input
-          id="Ia"
-          type="number"
-          value="2"
-          title="Integer from 0 to 100"
-          onchange="checkInputIsValidItemCount('Ia')"
-        /><span
-          >count of input item <span class="fw-bold">a</span> required to craft
-          1 output</span
-        ></label
-      >
-      <label
-        ><span class="fw-bold">Sa:</span
-        ><input
-          id="Sa"
-          type="number"
-          value="5"
-          title="Integer from 0 to 100"
-          onchange="checkInputIsValidItemCount('Sa')"
-        /><span
-          >max stack size of input item <span class="fw-bold">a</span></span
-        ></label
-      >
-      <label
-        ><span class="fw-bold">Ib:</span
-        ><input
-          id="Ib"
-          type="number"
-          value="3"
-          title="Integer from 0 to 100"
-          onchange="checkInputIsValidItemCount('Ib')"
-        /><span
-          >count of input item <span class="fw-bold">b</span> required to craft
-          1 output</span
-        ></label
-      >
-      <label
-        ><span class="fw-bold">Sb:</span
-        ><input
-          id="Sb"
-          type="number"
-          value="5"
-          onchange="checkInputIsValidItemCount('Sb')"
-        /><span
-          >max stack size of input item <span class="fw-bold">b</span></span
-        ></label
-      >
-      <button onclick="calcK()">Calculate k<sub>min</sub></button>
-      <p>k<sub>min</sub> = <span id="kResult">—</span></p>
-    </fieldset>
+    <form>
+      <fieldset>
+        <h3>Input item a</h3>
+        <label
+          ><span class="fw-bold">Ia:</span
+          ><input
+            id="Ia"
+            type="number"
+            value="2"
+            title="Integer from 0 to 100"
+            onchange="checkInputIsValidItemCount('Ia')"
+          /><span
+            >count of input item <span class="fw-bold">a</span> required to
+            craft 1 output</span
+          ></label
+        >
+        <label
+          ><span class="fw-bold">Sa:</span
+          ><input
+            id="Sa"
+            type="number"
+            value="5"
+            title="Integer from 0 to 100"
+            onchange="checkInputIsValidItemCount('Sa')"
+          /><span
+            >max stack size of input item <span class="fw-bold">a</span></span
+          ></label
+        >
+      </fieldset>
+      <fieldset>
+        <h3>Input item b</h3>
+        <label class="item-input-checkbox">
+          Used? <input type="checkbox" id="useItemB" />
+        </label>
+        <label
+          ><span class="fw-bold">Ib:</span
+          ><input
+            id="Ib"
+            type="number"
+            value="3"
+            title="Integer from 0 to 100"
+            onchange="checkInputIsValidItemCount('Ib')"
+          /><span
+            >count of input item <span class="fw-bold">b</span> required to
+            craft 1 output</span
+          ></label
+        >
+        <label
+          ><span class="fw-bold">Sb:</span
+          ><input
+            id="Sb"
+            type="number"
+            value="5"
+            onchange="checkInputIsValidItemCount('Sb')"
+          /><span
+            >max stack size of input item <span class="fw-bold">b</span></span
+          ></label
+        >
+      </fieldset>
+      <fieldset>
+        <h3>Input item c</h3>
+        <label class="item-input-checkbox">
+          Used? <input type="checkbox" id="useItemC" />
+        </label>
+        <label
+          ><span class="fw-bold">Ic:</span
+          ><input
+            id="Ic"
+            type="number"
+            value="3"
+            title="Integer from 0 to 100"
+            onchange="checkInputIsValidItemCount('Ic')"
+          /><span
+            >count of input item <span class="fw-bold">c</span> required to
+            craft 1 output</span
+          ></label
+        >
+        <label
+          ><span class="fw-bold">Sc:</span
+          ><input
+            id="Sc"
+            type="number"
+            value="5"
+            onchange="checkInputIsValidItemCount('Sc')"
+          /><span
+            >max stack size of input item <span class="fw-bold">c</span></span
+          ></label
+        >
+      </fieldset>
+
+      <fieldset>
+        <button onclick="calcK()" type="button">Calculate k<sub>min</sub></button>
+        <p><span class="fw-bold">k<sub>min</sub></span> = <span id="kResult">—</span></p>
+      </fieldset>
+    </form>
 
     <h2>Input Slots</h2>
     <p>
@@ -207,6 +272,7 @@
           { I: +Ia.value, S: +Sa.value },
           { I: +Ib.value, S: +Sb.value },
         ];
+        console.log('calcK', inputs);
         kResult.textContent = kMin(inputs);
       }
 
