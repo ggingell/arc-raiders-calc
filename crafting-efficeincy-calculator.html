@@ -136,15 +136,28 @@
   </head>
   <body>
     <h2>k<sub>min</sub> Calculator</h2>
-    <p>
-      <span class="fw-bold variable-label">k<sub>min</sub></span> is the count
-      of an item you should craft in order to use up full stacks of the input
-      item(s) <span class="fw-bold variable-label">I</span>. The compression
-      ratio of crafting the particular item is calculated as
-      <span class="fw-bold variable-label"
-        >total input slots / total output slots</span
-      >
-    </p>
+    <ul>
+      <li>
+        <span class="fw-bold variable-label">k<sub>min</sub></span> is the count
+        of an item you should craft in order to use up full stacks of the input
+        item(s) <span class="fw-bold variable-label">I</span>.
+      </li>
+      <li>
+        The compression ratio of crafting the particular item is calculated as
+        <span class="fw-bold variable-label"
+          >total input slots / total output slots</span
+        >
+      </li>
+      <li>
+        This calculation assumes you are crafting
+        <span class="fw-bold">k<sub>min</sub></span> number of output items. If
+        you craft more or less than it, you might have partial stacks of input
+        items that remain. 
+      </li>
+      <li>
+        <span style="background-color: green; padding: 2px; color: white; font-weight: bold;">Coming soon:</span> a list of common items and their crafting values for quick use.
+      </li>
+    </ul>
     <form>
       <fieldset class="input-item-inputs" id="item-inputs-a">
         <h3>Input item a</h3>
@@ -280,7 +293,7 @@
       > -->
         <label
           ><span class="fw-bold variable-label">Y: </span
-          ><input id="YOutput" type="number" value="1" disabled /><span
+          ><input id="YOutput" type="number" value="1" /><span
             >yield per craft (should always be 1, not 100% sure tho!)</span
           ></label
         >
@@ -328,12 +341,6 @@
         <p>
           <strong>Less</strong> than 1: Crafting the output will increase the
           total inventory slots used. Example: Raider Hatch Key, 0.8
-        </p>
-        <p>
-          <strong>Note: </strong>This calculation assumes you are crafting
-          <span class="fw-bold">k<sub>min</sub></span> number of output items.
-          If you craft more or less than it, you might have partial stacks of
-          input items that remain.
         </p>
       </fieldset>
     </form>
