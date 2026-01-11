@@ -25,6 +25,7 @@
         border: none;
         flex: 0 0 100%;
         background-color: #fff;
+        color: #000;
       }
       label {
         display: flex;
@@ -73,6 +74,9 @@
         font-size: 1.5rem;
         color: #080;
       }
+      .variable-label {
+        font-family: Georgia, Times, "Times New Roman", serif;
+      }
       .fw-bold {
         font-weight: bold;
       }
@@ -81,9 +85,9 @@
   <body>
     <h2>k<sub>min</sub> Calculator</h2>
     <p>
-      <span class="fw-bold">k<sub>min</sub></span> is the count of an item you
-      should craft in order to use up full stacks of the input item(s)
-      <span class="fw-bold">I</span>. The
+      <span class="fw-bold variable-label">k<sub>min</sub></span> is the count of an
+      item you should craft in order to use up full stacks of the input item(s)
+      <span class="fw-bold variable-label">I</span>. The
       <span class="fw-bold">input slots</span> and
       <span class="fw-bold">output slots</span> help determine the compression
       ratio of the recipe
@@ -92,7 +96,6 @@
       <fieldset id="item-inputs-a">
         <h3>Input item a</h3>
         <label class="item-input-checkbox">
-          Used?
           <input
             type="checkbox"
             id="useItemA"
@@ -102,7 +105,7 @@
           />
         </label>
         <label
-          ><span class="fw-bold">Ia:</span
+          ><span class="fw-bold variable-label">Ia:</span
           ><input
             id="Ia"
             type="number"
@@ -115,7 +118,7 @@
           ></label
         >
         <label
-          ><span class="fw-bold">Sa:</span
+          ><span class="fw-bold variable-label">Sa:</span
           ><input
             id="Sa"
             type="number"
@@ -130,7 +133,6 @@
       <fieldset id="item-inputs-b">
         <h3>Input item b</h3>
         <label class="item-input-checkbox">
-          Used?
           <input
             type="checkbox"
             id="useItemB"
@@ -139,7 +141,7 @@
           />
         </label>
         <label
-          ><span class="fw-bold">Ib:</span
+          ><span class="fw-bold variable-label">Ib:</span
           ><input
             id="Ib"
             type="number"
@@ -152,7 +154,7 @@
           ></label
         >
         <label
-          ><span class="fw-bold">Sb:</span
+          ><span class="fw-bold variable-label">Sb:</span
           ><input
             id="Sb"
             type="number"
@@ -166,7 +168,6 @@
       <fieldset id="item-inputs-c">
         <h3>Input item c</h3>
         <label class="item-input-checkbox">
-          Used?
           <input
             type="checkbox"
             id="useItemC"
@@ -174,7 +175,7 @@
           />
         </label>
         <label
-          ><span class="fw-bold">Ic:</span
+          ><span class="fw-bold variable-label">Ic:</span
           ><input
             id="Ic"
             type="number"
@@ -188,7 +189,7 @@
           ></label
         >
         <label
-          ><span class="fw-bold">Sc:</span
+          ><span class="fw-bold variable-label">Sc:</span
           ><input
             id="Sc"
             type="number"
