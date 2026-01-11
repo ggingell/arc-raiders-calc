@@ -8,6 +8,15 @@
         font-family: sans-serif;
         padding: 1rem;
       }
+      hr {
+        border: 0;
+        margin: 1.25rem 0;
+        border-top: 1px solid #888;
+        height: 0;
+        padding: 0;
+        background: none;
+        overflow: hidden;
+      }
       form {
         display: flex;
         flex-direction: row;
@@ -18,6 +27,9 @@
         position: relative;
         border: 2px solid #999;
         background-color: #eee;
+      }
+      /* Default to a disabled appearance */
+      fieldset.input-item-inputs {
         color: #999;
       }
       form fieldset:last-child {
@@ -80,20 +92,34 @@
       .fw-bold {
         font-weight: bold;
       }
+      /* Labels the output value of the calculation for number of inventory slots used by an input item. */
+      .slots-used-input-label {
+        margin-left: 2.5rem;
+      }
+      .slots-used-input-label span {
+        width: 4rem;
+        color: #080;
+        border-bottom: 1px solid #888;
+        text-align: left !important;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        font-size: 1.125rem;
+        padding: 2px;
+      }
     </style>
   </head>
   <body>
     <h2>k<sub>min</sub> Calculator</h2>
     <p>
-      <span class="fw-bold variable-label">k<sub>min</sub></span> is the count of an
-      item you should craft in order to use up full stacks of the input item(s)
-      <span class="fw-bold variable-label">I</span>. The
+      <span class="fw-bold variable-label">k<sub>min</sub></span> is the count
+      of an item you should craft in order to use up full stacks of the input
+      item(s) <span class="fw-bold variable-label">I</span>. The
       <span class="fw-bold">input slots</span> and
       <span class="fw-bold">output slots</span> help determine the compression
       ratio of the recipe
     </p>
     <form>
-      <fieldset id="item-inputs-a">
+      <fieldset class="input-item-inputs" id="item-inputs-a">
         <h3>Input item a</h3>
         <label class="item-input-checkbox">
           <input
@@ -129,8 +155,13 @@
             >max stack size of input item <span class="fw-bold">a</span></span
           ></label
         >
+        <hr />
+        <label class="slots-used-input-label"
+          ><span id="slots-used-input-value-a">-</span> total slots used by this
+          input item</label
+        >
       </fieldset>
-      <fieldset id="item-inputs-b">
+      <fieldset class="input-item-inputs" id="item-inputs-b">
         <h3>Input item b</h3>
         <label class="item-input-checkbox">
           <input
@@ -164,8 +195,13 @@
             >max stack size of input item <span class="fw-bold">b</span></span
           ></label
         >
+        <hr />
+        <label class="slots-used-input-label"
+          ><span id="slots-used-input-value-b">-</span> total slots used by this
+          input item</label
+        >
       </fieldset>
-      <fieldset id="item-inputs-c">
+      <fieldset class="input-item-inputs" id="item-inputs-c">
         <h3>Input item c</h3>
         <label class="item-input-checkbox">
           <input
@@ -200,20 +236,84 @@
             >max stack size of input item <span class="fw-bold">c</span></span
           ></label
         >
+        <hr />
+        <label class="slots-used-input-label"
+          ><span id="slots-used-input-value-c">-</span> total slots used by this
+          input item</label
+        >
+      </fieldset>
+      <fieldset>
+        <h3>Output Item</h3>
+        <!-- <label
+        ><span class="fw-bold">k: </span
+        ><input id="kOutput" type="number" value="5" /><span
+          >the value for <span class="fw-bold">k<sub>min</sub></span> calculated
+          above</span
+        ></label
+      > -->
+        <label
+          ><span class="fw-bold">Y: </span
+          ><input id="YOutput" type="number" value="1" disabled /><span
+            >yield per craft (should always be 1, not 100% sure tho!)</span
+          ></label
+        >
+        <label
+          ><span class="fw-bold">SY: </span
+          ><input id="SYOutput" type="number" value="1" /><span
+            >max stack size of output crafted item(s)<span class="fw-bold"
+              >Y</span
+            ></span
+          ></label
+        >
+        <!-- <button onclick="calcOutputSlots()">Calculate</button> -->
+        <!-- <p>Output Slots = <span id="outputResult">—</span></p> -->
       </fieldset>
 
       <fieldset>
         <button onclick="calcK()" type="button">
           Calculate k<sub>min</sub>
         </button>
+        <h2>Results</h2>
         <p>
-          <span class="fw-bold">k<sub>min</sub></span> =
+          <span class="fw-bold variable-label">k<sub>min</sub></span> =
           <span id="kResult">—</span>
+        </p>
+        <p>
+          <span class="fw-bold">total input slots used:</span>
+          <span id="inputSlotsUsedResult">—</span>
+        </p>
+        <p>
+          <span class="fw-bold">total output slots used:</span>
+          <span id="outputSlotsUsedResult">—</span>
+        </p>
+        <p>
+          <span class="fw-bold">compression ratio:</span>
+          <span id="compresionRatioResult">—</span>
+        </p>
+        <hr />
+        <h3>Compression Ratio Explanation</h3>
+        <p>
+          <strong>Equal</strong> to 1: The same number of inventory slots are
+          used by both the input and the output. Example: Blue Shield, 1
+        </p>
+        <p>
+          <strong>Greater</strong> than 1: Crafting the output will reduce the
+          total inventory slots used. Example: Mechanical Components, 2
+        </p>
+        <p>
+          <strong>Less</strong> than 1: Crafting the output will increase the
+          total inventory slots used. Example: Raider Hatch Key, 0.8
+        </p>
+        <p>
+          <strong>Note: </strong>This calculation assumes you are crafting
+          <span class="fw-bold">k<sub>min</sub></span> number of output items.
+          If you craft more or less than it, you might have partial stacks of
+          input items that remain.
         </p>
       </fieldset>
     </form>
 
-    <h2>Input Slots</h2>
+    <!-- <h2>Input Slots</h2>
     <p>
       Calculate the input slots used per input item. This should be done
       separately for each item type above.
@@ -241,34 +341,7 @@
       >
       <button onclick="calcInputSlots()">Calculate</button>
       <p>Inventory slots used = <span id="inputResult">—</span></p>
-    </fieldset>
-
-    <h2>Output Slots</h2>
-    <fieldset>
-      <label
-        ><span class="fw-bold">k: </span
-        ><input id="kOutput" type="number" value="5" /><span
-          >the value for <span class="fw-bold">k<sub>min</sub></span> calculated
-          above</span
-        ></label
-      >
-      <label
-        ><span class="fw-bold">Y: </span
-        ><input id="YOutput" type="number" value="1" /><span
-          >yield per craft (should always be 1)</span
-        ></label
-      >
-      <label
-        ><span class="fw-bold">SY: </span
-        ><input id="SYOutput" type="number" value="1" /><span
-          >max stack size of output crafted item(s)<span class="fw-bold"
-            >Y</span
-          ></span
-        ></label
-      >
-      <button onclick="calcOutputSlots()">Calculate</button>
-      <p>Output Slots = <span id="outputResult">—</span></p>
-    </fieldset>
+    </fieldset> -->
 
     <script>
       // Greatest Common Divisor
@@ -318,21 +391,88 @@
 
         // { I: +Ib.value, S: +Sb.value },
         console.log("calcK", inputs);
-        kResult.textContent = kMin(inputs);
+        const kMinResult = kMin(inputs);
+        kResult.textContent = kMinResult;
+
+        //
+        //
+        // Calc and output result for each input item's slots used
+        //
+        let totalInputSlotsUsed = 0;
+        const slotsUsedInputValueA = document.getElementById(
+          "slots-used-input-value-a"
+        );
+        const slotsUsedInputValueB = document.getElementById(
+          "slots-used-input-value-b"
+        );
+        const slotsUsedInputValueC = document.getElementById(
+          "slots-used-input-value-c"
+        );
+
+        // Always calculate and output result for Item A
+        const inputSlotsUsedResultA = calcInputSlots({
+          k: kMinResult,
+          I: +Ia.value,
+          S: +Sa.value,
+        });
+
+        slotsUsedInputValueA.textContent = inputSlotsUsedResultA;
+        totalInputSlotsUsed += inputSlotsUsedResultA;
+
+        if (shouldUseItemB.checked) {
+          const inputSlotsUsedResultB = calcInputSlots({
+            k: kMinResult,
+            I: +Ib.value,
+            S: +Sb.value,
+          });
+
+          slotsUsedInputValueB.textContent = inputSlotsUsedResultB;
+          totalInputSlotsUsed += inputSlotsUsedResultB;
+        } else {
+          slotsUsedInputValueB.textContent = "-";
+        }
+
+        if (shouldUseItemC.checked) {
+          const inputSlotsUsedResultC = calcInputSlots({
+            k: kMinResult,
+            I: +Ic.value,
+            S: +Sc.value,
+          });
+          slotsUsedInputValueC.textContent = inputSlotsUsedResultC;
+          totalInputSlotsUsed += inputSlotsUsedResultC;
+        } else {
+          slotsUsedInputValueC.textContent = "-";
+        }
+
+        //
+        //
+        // Calc and display total input and output slots used
+        //
+        inputSlotsUsedResult.textContent = totalInputSlotsUsed;
+
+        const outputSlotsUsed = calcOutputSlots({
+          k: kMinResult,
+          Y: +YOutput.value,
+          SY: +SYOutput.value,
+        });
+        outputSlotsUsedResult.textContent = outputSlotsUsed;
+
+        compresionRatioResult.textContent =
+          totalInputSlotsUsed / outputSlotsUsed;
       }
 
-      function calcInputSlots() {
-        const k = +kInput.value;
-        const I = +IInput.value;
-        const S = +SInput.value;
-        inputResult.textContent = (k * I) / S;
+      function calcInputSlots({ k, I, S }) {
+        // const k = +kInput.value;
+        // const I = +IInput.value;
+        // const S = +SInput.value;
+        return (k * I) / S;
       }
 
-      function calcOutputSlots() {
-        const k = +kOutput.value;
-        const Y = +YOutput.value;
-        const SY = +SYOutput.value;
-        outputResult.textContent = Math.ceil((k * Y) / SY);
+      function calcOutputSlots({ k, Y, SY }) {
+        // const k = +kOutput.value;
+        // const Y = +YOutput.value;
+        // const SY = +SYOutput.value;
+        return Math.ceil((k * Y) / SY);
       }
 
       function handleUseItemChange(inputEl) {
