@@ -16,11 +16,15 @@
       fieldset {
         margin-bottom: 1rem;
         position: relative;
+        border: 2px solid #999;
+        background-color: #eee;
+        color: #999;
       }
       form fieldset:last-child {
         /* dispplay below the flex row items*/
-        border:none;
+        border: none;
         flex: 0 0 100%;
+        background-color: #fff;
       }
       label {
         display: flex;
@@ -39,6 +43,9 @@
         border-radius: 2px;
         padding: 2px;
       }
+      input:disabled {
+        border-color: #999;
+      }
       input.invalid {
         border: 1px solid red;
         color: red;
@@ -53,7 +60,12 @@
         position: absolute;
         top: -0.45rem;
         right: 0;
-        padding: .5rem;
+        padding: 0.5rem;
+      }
+      /* css selector for checkbox when checked */
+      fieldset:has(label.item-input-checkbox input:checked) {
+        border: 2px solid #88f;
+        color: #000;
       }
       #kResult {
         font-family: "Courier New", Courier, monospace;
@@ -77,8 +89,18 @@
       ratio of the recipe
     </p>
     <form>
-      <fieldset>
+      <fieldset id="item-inputs-a">
         <h3>Input item a</h3>
+        <label class="item-input-checkbox">
+          Used?
+          <input
+            type="checkbox"
+            id="useItemA"
+            checked
+            disabled
+            title="At least one input item is required"
+          />
+        </label>
         <label
           ><span class="fw-bold">Ia:</span
           ><input
@@ -105,10 +127,16 @@
           ></label
         >
       </fieldset>
-      <fieldset>
+      <fieldset id="item-inputs-b">
         <h3>Input item b</h3>
         <label class="item-input-checkbox">
-          Used? <input type="checkbox" id="useItemB" />
+          Used?
+          <input
+            type="checkbox"
+            id="useItemB"
+            checked
+            onChange="handleUseItemChange(this)"
+          />
         </label>
         <label
           ><span class="fw-bold">Ib:</span
@@ -135,10 +163,15 @@
           ></label
         >
       </fieldset>
-      <fieldset>
+      <fieldset id="item-inputs-c">
         <h3>Input item c</h3>
         <label class="item-input-checkbox">
-          Used? <input type="checkbox" id="useItemC" />
+          Used?
+          <input
+            type="checkbox"
+            id="useItemC"
+            onChange="handleUseItemChange(this)"
+          />
         </label>
         <label
           ><span class="fw-bold">Ic:</span
@@ -147,6 +180,7 @@
             type="number"
             value="3"
             title="Integer from 0 to 100"
+            disabled
             onchange="checkInputIsValidItemCount('Ic')"
           /><span
             >count of input item <span class="fw-bold">c</span> required to
@@ -159,6 +193,7 @@
             id="Sc"
             type="number"
             value="5"
+            disabled
             onchange="checkInputIsValidItemCount('Sc')"
           /><span
             >max stack size of input item <span class="fw-bold">c</span></span
@@ -167,8 +202,13 @@
       </fieldset>
 
       <fieldset>
-        <button onclick="calcK()" type="button">Calculate k<sub>min</sub></button>
-        <p><span class="fw-bold">k<sub>min</sub></span> = <span id="kResult">—</span></p>
+        <button onclick="calcK()" type="button">
+          Calculate k<sub>min</sub>
+        </button>
+        <p>
+          <span class="fw-bold">k<sub>min</sub></span> =
+          <span id="kResult">—</span>
+        </p>
       </fieldset>
     </form>
 
@@ -268,11 +308,15 @@
       }
 
       function calcK() {
-        const inputs = [
-          { I: +Ia.value, S: +Sa.value },
-          { I: +Ib.value, S: +Sb.value },
-        ];
-        console.log('calcK', inputs);
+        const shouldUseItemB = document.getElementById("useItemB");
+        const shouldUseItemC = document.getElementById("useItemC");
+
+        const inputs = [{ I: +Ia.value, S: +Sa.value }];
+        if (shouldUseItemB.checked) inputs.push({ I: +Ib.value, S: +Sb.value });
+        if (shouldUseItemC.checked) inputs.push({ I: +Ic.value, S: +Sc.value });
+
+        // { I: +Ib.value, S: +Sb.value },
+        console.log("calcK", inputs);
         kResult.textContent = kMin(inputs);
       }
 
@@ -288,6 +332,20 @@
         const Y = +YOutput.value;
         const SY = +SYOutput.value;
         outputResult.textContent = Math.ceil((k * Y) / SY);
+      }
+
+      function handleUseItemChange(inputEl) {
+        console.log("handleUseItemChange ", inputEl);
+        const parentFieldset = inputEl.closest("fieldset");
+        if (inputEl.checked) {
+          parentFieldset
+            .querySelectorAll('input[type="number"]')
+            .forEach((inp) => (inp.disabled = false));
+        } else {
+          parentFieldset
+            .querySelectorAll('input[type="number"]')
+            .forEach((inp) => (inp.disabled = true));
+        }
       }
     </script>
   </body>
