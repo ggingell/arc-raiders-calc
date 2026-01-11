@@ -51,6 +51,19 @@
       label span:first-child {
         text-align: right;
       }
+      button {
+        padding: 1rem;
+        border: 2px solid #14a;
+        border-radius: 8px;
+        background-color: #36c;
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #fff;
+        cursor: pointer;
+      }
+      button:active {
+        background-color: #69f;
+      }
       input {
         border: 1px solid #333;
         border-radius: 2px;
@@ -252,13 +265,13 @@
         ></label
       > -->
         <label
-          ><span class="fw-bold">Y: </span
+          ><span class="fw-bold variable-label">Y: </span
           ><input id="YOutput" type="number" value="1" disabled /><span
             >yield per craft (should always be 1, not 100% sure tho!)</span
           ></label
         >
         <label
-          ><span class="fw-bold">SY: </span
+          ><span class="fw-bold variable-label">SY: </span
           ><input id="SYOutput" type="number" value="1" /><span
             >max stack size of output crafted item(s)<span class="fw-bold"
               >Y</span
@@ -270,9 +283,7 @@
       </fieldset>
 
       <fieldset>
-        <button onclick="calcK()" type="button">
-          Calculate k<sub>min</sub>
-        </button>
+        <button onclick="calcK()" type="button">Calculate</button>
         <h2>Results</h2>
         <p>
           <span class="fw-bold variable-label">k<sub>min</sub></span> =
