@@ -83,6 +83,21 @@
         font-size: 1.125rem;
         width: 4rem;
       }
+      .fieldset-header {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        min-height: 4rem;
+        margin-bottom: 1rem;
+      }
+      #select-output-item {
+        flex-grow: 1;
+        padding: 0.5rem;
+        font-size: 1.25rem;
+        background: #fff;
+        border-radius: 8px;
+        border: 2px solid #14a;
+      }
       label.item-input-checkbox {
         position: absolute;
         top: -0.45rem;
@@ -153,15 +168,15 @@
         This calculation assumes you are crafting
         <span class="fw-bold">k<sub>min</sub></span> number of output items. If
         you craft more or less than it, you might have partial stacks of input
-        items that remain. 
-      </li>
-      <li>
-        <span style="background-color: green; padding: 2px; color: white; font-weight: bold;">Coming soon:</span> a list of common items and their crafting values for quick use.
+        items that remain.
       </li>
     </ul>
     <form>
       <fieldset class="input-item-inputs" id="item-inputs-a">
-        <h3>Input item a</h3>
+        <div class="fieldset-header">
+          <h3>Input item a</h3>
+          <span id="input-item-title-a"></span>
+        </div>
         <label class="item-input-checkbox">
           <input
             type="checkbox"
@@ -203,14 +218,12 @@
         >
       </fieldset>
       <fieldset class="input-item-inputs" id="item-inputs-b">
-        <h3>Input item b</h3>
+        <div class="fieldset-header">
+          <h3>Input item b</h3>
+          <span id="input-item-title-b"></span>
+        </div>
         <label class="item-input-checkbox">
-          <input
-            type="checkbox"
-            id="useItemB"
-            checked
-            onChange="handleUseItemChange(this)"
-          />
+          <input type="checkbox" id="useItemB" checked />
         </label>
         <label
           ><span class="fw-bold variable-label">Ib:</span
@@ -243,13 +256,12 @@
         >
       </fieldset>
       <fieldset class="input-item-inputs" id="item-inputs-c">
-        <h3>Input item c</h3>
+        <div class="fieldset-header">
+          <h3>Input item c</h3>
+          <span id="input-item-title-c"></span>
+        </div>
         <label class="item-input-checkbox">
-          <input
-            type="checkbox"
-            id="useItemC"
-            onChange="handleUseItemChange(this)"
-          />
+          <input type="checkbox" id="useItemC" />
         </label>
         <label
           ><span class="fw-bold variable-label">Ic:</span
@@ -284,7 +296,12 @@
         >
       </fieldset>
       <fieldset>
-        <h3>Output Item</h3>
+        <div class="fieldset-header">
+          <h3>Output Item</h3>
+          <select id="select-output-item">
+            <option value="">Select an output</option>
+          </select>
+        </div>
         <!-- <label
         ><span class="fw-bold">k: </span
         ><input id="kOutput" type="number" value="5" /><span
@@ -311,7 +328,7 @@
       </fieldset>
 
       <fieldset>
-        <button onclick="calcK()" type="button">Calculate</button>
+        <button id="btnCalcK" type="button">Calculate</button>
         <h2>Results</h2>
         <p>
           <span class="fw-bold variable-label">k<sub>min</sub></span> =
@@ -376,156 +393,10 @@
       <p>Inventory slots used = <span id="inputResult">—</span></p>
     </fieldset> -->
 
-    <script>
-      // Greatest Common Divisor
-      function gcd(a, b) {
-        return b === 0 ? Math.abs(a) : gcd(b, a % b);
-      }
-
-      // Least Common Multiple
-      function lcm(a, b) {
-        return Math.abs(a * b) / gcd(a, b);
-      }
-
-      // k_min calculation
-      function kMin(inputs) {
-        return inputs
-          .map(({ I, S }) => S / gcd(I, S))
-          .reduce((a, b) => lcm(a, b));
-      }
-
-      function checkInputIsValidItemCount(inputId) {
-        const inputNode = document.getElementById(inputId);
-        if (!inputNode) {
-          console.error("Cannot find input with id ", inputId);
-          return false;
-        }
-
-        const { value } = inputNode;
-        const isValid =
-          /^\d+$/.test(value) &&
-          parseInt(value, 10) > 0 &&
-          parseInt(value, 10) <= 100;
-        if (isValid) {
-          inputNode.classList.remove("invalid");
-        } else {
-          inputNode.classList.add("invalid");
-        }
-        return isValid;
-      }
-
-      function calcK() {
-        const shouldUseItemB = document.getElementById("useItemB");
-        const shouldUseItemC = document.getElementById("useItemC");
-
-        const inputs = [{ I: +Ia.value, S: +Sa.value }];
-        if (shouldUseItemB.checked) inputs.push({ I: +Ib.value, S: +Sb.value });
-        if (shouldUseItemC.checked) inputs.push({ I: +Ic.value, S: +Sc.value });
-
-        // { I: +Ib.value, S: +Sb.value },
-        console.log("calcK", inputs);
-        const kMinResult = kMin(inputs);
-        kResult.textContent = kMinResult;
-
-        //
-        //
-        // Calc and output result for each input item's slots used
-        //
-        let totalInputSlotsUsed = 0;
-        const slotsUsedInputValueA = document.getElementById(
-          "slots-used-input-value-a"
-        );
-        const slotsUsedInputValueB = document.getElementById(
-          "slots-used-input-value-b"
-        );
-        const slotsUsedInputValueC = document.getElementById(
-          "slots-used-input-value-c"
-        );
-
-        // Always calculate and output result for Item A
-        const inputSlotsUsedResultA = calcInputSlots({
-          k: kMinResult,
-          I: +Ia.value,
-          S: +Sa.value,
-        });
-
-        slotsUsedInputValueA.textContent = inputSlotsUsedResultA;
-        totalInputSlotsUsed += inputSlotsUsedResultA;
-
-        if (shouldUseItemB.checked) {
-          const inputSlotsUsedResultB = calcInputSlots({
-            k: kMinResult,
-            I: +Ib.value,
-            S: +Sb.value,
-          });
-
-          slotsUsedInputValueB.textContent = inputSlotsUsedResultB;
-          totalInputSlotsUsed += inputSlotsUsedResultB;
-        } else {
-          slotsUsedInputValueB.textContent = "-";
-        }
-
-        if (shouldUseItemC.checked) {
-          const inputSlotsUsedResultC = calcInputSlots({
-            k: kMinResult,
-            I: +Ic.value,
-            S: +Sc.value,
-          });
-          slotsUsedInputValueC.textContent = inputSlotsUsedResultC;
-          totalInputSlotsUsed += inputSlotsUsedResultC;
-        } else {
-          slotsUsedInputValueC.textContent = "-";
-        }
-
-        //
-        //
-        // Calc and display total input and output slots used
-        //
-        inputSlotsUsedResult.textContent = totalInputSlotsUsed;
-
-        const outputSlotsUsed = calcOutputSlots({
-          k: kMinResult,
-          Y: +YOutput.value,
-          SY: +SYOutput.value,
-        });
-        outputSlotsUsedResult.textContent = outputSlotsUsed;
-
-        const compRatio = Number(totalInputSlotsUsed / outputSlotsUsed);
-        compresionRatioResult.textContent = compRatio.toPrecision(5);
-        compresionRatioResult.setAttribute("class", "");
-
-        if (compRatio > 1) compresionRatioResult.classList.add("good");
-        else if (compRatio < 1) compresionRatioResult.classList.add("bad");
-        else compresionRatioResult.classList.add("neutral");
-      }
-
-      function calcInputSlots({ k, I, S }) {
-        // const k = +kInput.value;
-        // const I = +IInput.value;
-        // const S = +SInput.value;
-        return (k * I) / S;
-      }
-
-      function calcOutputSlots({ k, Y, SY }) {
-        // const k = +kOutput.value;
-        // const Y = +YOutput.value;
-        // const SY = +SYOutput.value;
-        return Math.ceil((k * Y) / SY);
-      }
-
-      function handleUseItemChange(inputEl) {
-        console.log("handleUseItemChange ", inputEl);
-        const parentFieldset = inputEl.closest("fieldset");
-        if (inputEl.checked) {
-          parentFieldset
-            .querySelectorAll('input[type="number"]')
-            .forEach((inp) => (inp.disabled = false));
-        } else {
-          parentFieldset
-            .querySelectorAll('input[type="number"]')
-            .forEach((inp) => (inp.disabled = true));
-        }
-      }
+    <script type="module" src="./main.js"></script>
+    <script type="module">
+      import { init } from "./main.js";
+      init();
     </script>
   </body>
 </html>
