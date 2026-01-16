@@ -114,19 +114,32 @@
         font-family: "Courier New", Courier, monospace;
         font-weight: bold;
         font-size: 1.75rem;
+        padding: 0.125rem 0.25rem;
+        border-radius: 4px;
         color: #33f;
+        transition: color 0.4s ease-out, background 0.4s ease-out;
       }
       #compresionRatioResult {
         color: #333;
+        background: #fff;
       }
       #compresionRatioResult.neutral {
         color: #333;
       }
+      #compresionRatioResult.bg-neutral {
+        background: #333;
+      }
       #compresionRatioResult.good {
         color: #3a3;
       }
+      #compresionRatioResult.bg-good {
+        background: #3a3;
+      }
       #compresionRatioResult.bad {
         color: #e66;
+      }
+      #compresionRatioResult.bg-bad {
+        background: #e66;
       }
       .variable-label {
         font-family: Georgia, Times, "Times New Roman", serif;
@@ -331,34 +344,33 @@
         <button id="btnCalcK" type="button">Calculate</button>
         <h2>Results</h2>
         <p>
-          <span class="fw-bold variable-label">k<sub>min</sub></span> =
+          <span class="fw-bold variable-label">k<sub>min</sub>:</span>
           <span id="kResult">—</span>
         </p>
         <p>
-          <span class="fw-bold">total input slots used:</span>
+          <span class="fw-bold">Total input slots:</span>
           <span id="inputSlotsUsedResult">—</span>
         </p>
         <p>
-          <span class="fw-bold">total output slots used:</span>
+          <span class="fw-bold">Total output slots:</span>
           <span id="outputSlotsUsedResult">—</span>
         </p>
         <p>
-          <span class="fw-bold">compression ratio:</span>
+          <span class="fw-bold">Compression ratio:</span>
           <span id="compresionRatioResult">—</span>
         </p>
         <hr />
         <h3>Compression Ratio Explanation</h3>
         <p>
-          <strong>Equal</strong> to 1: The same number of inventory slots are
-          used by both the input and the output. Example: Blue Shield, 1
+          <strong>Equal</strong> to 1: Crafting the output will use the <em>same</em> number of inventory slots for both the input and output. <strong>Example:</strong> Epic tier Augment (1)
         </p>
         <p>
-          <strong>Greater</strong> than 1: Crafting the output will reduce the
-          total inventory slots used. Example: Mechanical Components, 2
+          <strong>Greater</strong> than 1: Crafting the output will <em>reduce</em> the
+          total inventory slots used. <strong>Example:</strong> Mechanical Components  (2)
         </p>
         <p>
           <strong>Less</strong> than 1: Crafting the output will increase the
-          total inventory slots used. Example: Raider Hatch Key, 0.8
+          total inventory slots used. <strong>Example:</strong> Raider Hatch Key (0.8)
         </p>
       </fieldset>
     </form>

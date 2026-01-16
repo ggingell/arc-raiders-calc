@@ -16,6 +16,20 @@ function kMin(inputs) {
   return inputs.map(({ I, S }) => S / gcd(I, S)).reduce((a, b) => lcm(a, b));
 }
 
+function flashResult(el, colourClass) {
+  // 1️⃣  apply the colour class
+  el.classList.add(colourClass);
+
+  // 2️⃣  (force a repaint so the transition starts fresh)
+  void el.offsetWidth;        // tiny trick – forces re‑flow
+
+  // 3️⃣  after a short while remove the class – the colour fades to white
+  setTimeout(() => {
+    el.classList.remove(colourClass);
+    // colour will now be the default (white)
+  }, 400);                    // 400 ms == transition‑duration above
+}
+
 function checkInputIsValidItemCount(inputId) {
   const inputNode = document.getElementById(inputId);
   if (!inputNode) {
@@ -115,6 +129,9 @@ function calcK() {
   const compRatio = Number(totalInputSlotsUsed / outputSlotsUsed);
   compresionRatioResult.textContent = compRatio.toPrecision(5);
   compresionRatioResult.setAttribute("class", "");
+  flashResult(compresionRatioResult,
+    compRatio > 1 ? 'bg-good' :
+    compRatio < 1 ? 'bg-bad'  : 'bg-neutral');
 
   if (compRatio > 1) compresionRatioResult.classList.add("good");
   else if (compRatio < 1) compresionRatioResult.classList.add("bad");
