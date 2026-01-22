@@ -2349,6 +2349,14 @@ export const ITEMS_WITH_RECIPES = {
     "type": "Modification",
     "isWeapon": false
   },
+  "kinetic_converter_blueprint": {
+    "id": "kinetic_converter_blueprint",
+    "name": "Kinetic Converter Blueprint",
+    "rarity": "Legendary",
+    "stackSize": 1,
+    "type": "Blueprint",
+    "isWeapon": false
+  },
   "laboratory_reagents": {
     "id": "laboratory_reagents",
     "name": "Laboratory Reagents",
@@ -2557,8 +2565,8 @@ export const ITEMS_WITH_RECIPES = {
     "rarity": "Epic",
     "stackSize": 1,
     "recipe": {
-      "advanced_mechanical_components": 2,
-      "processor": 2
+      "advanced_electrical_components": 2,
+      "processor": 3
     },
     "craftBench": "equipment_bench",
     "type": "Augment",
@@ -3751,6 +3759,14 @@ export const ITEMS_WITH_RECIPES = {
     "type": "Modification",
     "isWeapon": false
   },
+  "silencer_iii_blueprint": {
+    "id": "silencer_iii_blueprint",
+    "name": "Silencer III Blueprint",
+    "rarity": "Legendary",
+    "stackSize": 1,
+    "type": "Blueprint",
+    "isWeapon": false
+  },
   "silver_teaspoon_set": {
     "id": "silver_teaspoon_set",
     "name": "Silver Teaspoon Set",
@@ -4710,7 +4726,7 @@ export const ITEMS_WITH_RECIPES = {
     "recipe": {
       "chemicals": 3
     },
-    "craftBench": "explosives_bench",
+    "craftBench": "utility_bench",
     "type": "Quick Use",
     "isWeapon": false
   },
