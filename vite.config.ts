@@ -1,6 +1,9 @@
-import type { UserConfig } from 'vite'
+import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
 
-export default {
+import type { UserConfig } from "vite";
+
+export default defineConfig({
   base: "arc-raiders-calc",
-  
-} satisfies UserConfig;
+  plugins: [tailwindcss()],
+}) satisfies UserConfig;
