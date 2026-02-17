@@ -11,9 +11,5 @@ git clone https://github.com/RaidTheory/arcraiders-data.git
 node map-item-recipe-data.js
 ```
 
-Code must be served with a proper HTTP server (file:// will not work). If you have python:
-
-```
-python -m http.server
-```
+Install packages with `npm ci`, and then `npm run dev` to develop with Vite.
 
