@@ -17,7 +17,10 @@ export const ITEMS_WITH_RECIPES = {
       "chemicals": 3,
       "plastic_parts": 3
     },
-    "craftBench": "med_station",
+    "craftBench": [
+      "in_raid",
+      "med_station"
+    ],
     "type": "Quick Use",
     "isWeapon": false
   },
@@ -38,7 +41,10 @@ export const ITEMS_WITH_RECIPES = {
       "electrical_components": 2,
       "wires": 3
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Refined Material",
     "isWeapon": false
   },
@@ -51,7 +57,10 @@ export const ITEMS_WITH_RECIPES = {
       "mechanical_components": 2,
       "steel_spring": 2
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Refined Material",
     "isWeapon": false
   },
@@ -61,6 +70,19 @@ export const ITEMS_WITH_RECIPES = {
     "rarity": "Uncommon",
     "stackSize": 10,
     "type": "Nature",
+    "isWeapon": false
+  },
+  "agave_juice": {
+    "id": "agave_juice",
+    "name": "Agave Juice",
+    "rarity": "Common",
+    "stackSize": 5,
+    "recipe": {
+      "agave": 1,
+      "empty_wine_bottle": 1
+    },
+    "craftBench": "in_raid",
+    "type": "Quick Use",
     "isWeapon": false
   },
   "air_freshener": {
@@ -77,6 +99,22 @@ export const ITEMS_WITH_RECIPES = {
     "rarity": "Rare",
     "stackSize": 3,
     "type": "Recyclable",
+    "isWeapon": false
+  },
+  "alien_duck": {
+    "id": "alien_duck",
+    "name": "Alien Duck",
+    "rarity": "Uncommon",
+    "stackSize": 15,
+    "type": "Trinket",
+    "isWeapon": false
+  },
+  "ancient_fort_security_code": {
+    "id": "ancient_fort_security_code",
+    "name": "Ancient Fort Security Code",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Key",
     "isWeapon": false
   },
   "angled_grip_i": {
@@ -108,7 +146,7 @@ export const ITEMS_WITH_RECIPES = {
   "angled_grip_ii_blueprint": {
     "id": "angled_grip_ii_blueprint",
     "name": "Angled Grip II Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -129,7 +167,7 @@ export const ITEMS_WITH_RECIPES = {
   "angled_grip_iii_blueprint": {
     "id": "angled_grip_iii_blueprint",
     "name": "Angled Grip III Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -143,14 +181,17 @@ export const ITEMS_WITH_RECIPES = {
       "chemicals": 10,
       "great_mullein": 2
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Refined Material",
     "isWeapon": false
   },
   "anvil_blueprint": {
     "id": "anvil_blueprint",
     "name": "Anvil Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -173,6 +214,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Anvil II",
     "rarity": "Uncommon",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "Hand Cannon",
     "isWeapon": true
   },
@@ -181,6 +223,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Anvil III",
     "rarity": "Uncommon",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "Hand Cannon",
     "isWeapon": true
   },
@@ -189,6 +232,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Anvil IV",
     "rarity": "Uncommon",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "Hand Cannon",
     "isWeapon": true
   },
@@ -217,7 +261,7 @@ export const ITEMS_WITH_RECIPES = {
   "aphelion_blueprint": {
     "id": "aphelion_blueprint",
     "name": "Aphelion Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -235,6 +279,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "ARC Alloy",
     "rarity": "Uncommon",
     "stackSize": 15,
+    "recipe": {
+      "wasp_driver": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -246,7 +294,10 @@ export const ITEMS_WITH_RECIPES = {
     "recipe": {
       "arc_alloy": 8
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -291,6 +342,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "ARC Powercell",
     "rarity": "Common",
     "stackSize": 5,
+    "recipe": {
+      "advanced_arc_powercell": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -355,23 +410,11 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Assorted Seeds",
     "rarity": "Common",
     "stackSize": 100,
+    "recipe": {
+      "agave": 1
+    },
+    "craftBench": "in_raid",
     "type": "Nature",
-    "isWeapon": false
-  },
-  "backpack_black_hiker_color": {
-    "id": "backpack_black_hiker_color",
-    "name": "Backpack (Black Hiker Color)",
-    "rarity": "Common",
-    "stackSize": 1,
-    "type": "Cosmetic",
-    "isWeapon": false
-  },
-  "banana": {
-    "id": "banana",
-    "name": "Banana",
-    "rarity": "Common",
-    "stackSize": 1,
-    "type": "Backpack Charm",
     "isWeapon": false
   },
   "bandage": {
@@ -383,8 +426,9 @@ export const ITEMS_WITH_RECIPES = {
       "fabric": 5
     },
     "craftBench": [
-      "workbench",
-      "med_station"
+      "in_raid",
+      "med_station",
+      "workbench"
     ],
     "type": "Quick Use",
     "isWeapon": false
@@ -404,7 +448,7 @@ export const ITEMS_WITH_RECIPES = {
   "barricade_kit_blueprint": {
     "id": "barricade_kit_blueprint",
     "name": "Barricade Kit Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -422,13 +466,17 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Battery",
     "rarity": "Uncommon",
     "stackSize": 15,
+    "recipe": {
+      "jolt_mine": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
   "bettina_blueprint": {
     "id": "bettina_blueprint",
     "name": "Bettina Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -511,7 +559,7 @@ export const ITEMS_WITH_RECIPES = {
   "blaze_grenade_blueprint": {
     "id": "blaze_grenade_blueprint",
     "name": "Blaze Grenade Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -525,7 +573,10 @@ export const ITEMS_WITH_RECIPES = {
       "blaze_grenade": 1,
       "wires": 1
     },
-    "craftBench": "workbench",
+    "craftBench": [
+      "in_raid",
+      "workbench"
+    ],
     "type": "Quick Use",
     "isWeapon": false
   },
@@ -540,7 +591,7 @@ export const ITEMS_WITH_RECIPES = {
   "blue_gate_cellar_key": {
     "id": "blue_gate_cellar_key",
     "name": "Blue Gate Cellar Key",
-    "rarity": "Uncommon",
+    "rarity": "Rare",
     "stackSize": 1,
     "type": "Key",
     "isWeapon": false
@@ -584,23 +635,15 @@ export const ITEMS_WITH_RECIPES = {
   "blue_light_stick_blueprint": {
     "id": "blue_light_stick_blueprint",
     "name": "Blue Light Stick Blueprint",
-    "rarity": "Legendary",
-    "stackSize": 1,
-    "type": "Blueprint",
-    "isWeapon": false
-  },
-  "blue_radio_renegade_color": {
-    "id": "blue_radio_renegade_color",
-    "name": "Blue (Radio Renegade Color)",
     "rarity": "Common",
     "stackSize": 1,
-    "type": "Cosmetic",
+    "type": "Blueprint",
     "isWeapon": false
   },
   "bobcat_blueprint": {
     "id": "bobcat_blueprint",
     "name": "Bobcat Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -615,9 +658,7 @@ export const ITEMS_WITH_RECIPES = {
       "light_gun_parts": 3,
       "magnetic_accelerator": 1
     },
-    "craftBench": [
-      "weapon_bench"
-    ],
+    "craftBench": "weapon_bench",
     "type": "SMG",
     "isWeapon": true
   },
@@ -626,6 +667,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Bobcat II",
     "rarity": "Epic",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "SMG",
     "isWeapon": true
   },
@@ -634,6 +676,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Bobcat III",
     "rarity": "Epic",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "SMG",
     "isWeapon": true
   },
@@ -642,6 +685,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Bobcat IV",
     "rarity": "Epic",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "SMG",
     "isWeapon": true
   },
@@ -693,14 +737,6 @@ export const ITEMS_WITH_RECIPES = {
     "type": "Recyclable",
     "isWeapon": false
   },
-  "burgerboy": {
-    "id": "burgerboy",
-    "name": "Burgerboy",
-    "rarity": "Common",
-    "stackSize": 1,
-    "type": "Backpack Charm",
-    "isWeapon": false
-  },
   "buried_city_hospital_key": {
     "id": "buried_city_hospital_key",
     "name": "Buried City Hospital Key",
@@ -736,7 +772,7 @@ export const ITEMS_WITH_RECIPES = {
   "burletta_blueprint": {
     "id": "burletta_blueprint",
     "name": "Burletta Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -759,6 +795,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Burletta II",
     "rarity": "Uncommon",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "Pistol",
     "isWeapon": true
   },
@@ -767,6 +804,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Burletta III",
     "rarity": "Uncommon",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "Pistol",
     "isWeapon": true
   },
@@ -775,6 +813,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Burletta IV",
     "rarity": "Uncommon",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "Pistol",
     "isWeapon": true
   },
@@ -782,7 +821,7 @@ export const ITEMS_WITH_RECIPES = {
     "id": "burned_arc_circuitry",
     "name": "Burned Arc Circuitry",
     "rarity": "Uncommon",
-    "stackSize": 5,
+    "stackSize": 3,
     "type": "Recyclable",
     "isWeapon": false
   },
@@ -823,15 +862,11 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Canister",
     "rarity": "Uncommon",
     "stackSize": 15,
+    "recipe": {
+      "bicycle_pump": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
-    "isWeapon": false
-  },
-  "cans_backpack_attachment": {
-    "id": "cans_backpack_attachment",
-    "name": "Cans Backpack Attachment",
-    "rarity": "Common",
-    "stackSize": 1,
-    "type": "Cosmetic",
     "isWeapon": false
   },
   "cat_bed": {
@@ -850,19 +885,15 @@ export const ITEMS_WITH_RECIPES = {
     "type": "Trinket",
     "isWeapon": false
   },
-  "cheer": {
-    "id": "cheer",
-    "name": "Cheer",
-    "rarity": "Common",
-    "stackSize": 1,
-    "type": "Cosmetic",
-    "isWeapon": false
-  },
   "chemicals": {
     "id": "chemicals",
     "name": "Chemicals",
     "rarity": "Common",
     "stackSize": 50,
+    "recipe": {
+      "gas_grenade": 1
+    },
+    "craftBench": "in_raid",
     "type": "Basic Material",
     "isWeapon": false
   },
@@ -916,7 +947,7 @@ export const ITEMS_WITH_RECIPES = {
   "combat_mk3_aggressive_blueprint": {
     "id": "combat_mk3_aggressive_blueprint",
     "name": "Combat Mk. 3 (Aggressive) Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -937,9 +968,17 @@ export const ITEMS_WITH_RECIPES = {
   "combat_mk3_flanking_blueprint": {
     "id": "combat_mk3_flanking_blueprint",
     "name": "Combat Mk. 3 (Flanking) Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
+    "isWeapon": false
+  },
+  "comet_igniter": {
+    "id": "comet_igniter",
+    "name": "Comet Igniter",
+    "rarity": "Rare",
+    "stackSize": 3,
+    "type": "Recyclable",
     "isWeapon": false
   },
   "compensator_i": {
@@ -971,7 +1010,7 @@ export const ITEMS_WITH_RECIPES = {
   "compensator_ii_blueprint": {
     "id": "compensator_ii_blueprint",
     "name": "Compensator II Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -979,7 +1018,7 @@ export const ITEMS_WITH_RECIPES = {
   "compensator_iii": {
     "id": "compensator_iii",
     "name": "Compensator III",
-    "rarity": "Uncommon",
+    "rarity": "Rare",
     "stackSize": 1,
     "recipe": {
       "mod_components": 2,
@@ -992,7 +1031,7 @@ export const ITEMS_WITH_RECIPES = {
   "compensator_iii_blueprint": {
     "id": "compensator_iii_blueprint",
     "name": "Compensator III Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1014,7 +1053,7 @@ export const ITEMS_WITH_RECIPES = {
   "complex_gun_parts_blueprint": {
     "id": "complex_gun_parts_blueprint",
     "name": "Complex Gun Parts Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1059,7 +1098,10 @@ export const ITEMS_WITH_RECIPES = {
     "recipe": {
       "chemicals": 6
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Refined Material",
     "isWeapon": false
   },
@@ -1074,6 +1116,14 @@ export const ITEMS_WITH_RECIPES = {
   "dam_control_tower_key": {
     "id": "dam_control_tower_key",
     "name": "Dam Control Tower Key",
+    "rarity": "Epic",
+    "stackSize": 1,
+    "type": "Key",
+    "isWeapon": false
+  },
+  "dam_controlled_access_zone_key": {
+    "id": "dam_controlled_access_zone_key",
+    "name": "Dam Controlled Access Zone Key",
     "rarity": "Epic",
     "stackSize": 1,
     "type": "Key",
@@ -1198,6 +1248,7 @@ export const ITEMS_WITH_RECIPES = {
     "stackSize": 1,
     "recipe": {
       "arc_circuitry": 2,
+      "comet_igniter": 1,
       "explosive_compound": 3
     },
     "craftBench": "explosives_bench",
@@ -1207,7 +1258,7 @@ export const ITEMS_WITH_RECIPES = {
   "deadline_blueprint": {
     "id": "deadline_blueprint",
     "name": "Deadline Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1228,7 +1279,7 @@ export const ITEMS_WITH_RECIPES = {
   "defibrillator_blueprint": {
     "id": "defibrillator_blueprint",
     "name": "Defibrillator Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1263,6 +1314,14 @@ export const ITEMS_WITH_RECIPES = {
     "rarity": "Rare",
     "stackSize": 3,
     "type": "Recyclable",
+    "isWeapon": false
+  },
+  "doodly_duck": {
+    "id": "doodly_duck",
+    "name": "Doodly Duck",
+    "rarity": "Rare",
+    "stackSize": 15,
+    "type": "Trinket",
     "isWeapon": false
   },
   "door_blocker": {
@@ -1302,8 +1361,19 @@ export const ITEMS_WITH_RECIPES = {
     "recipe": {
       "fabric": 14
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Refined Material",
+    "isWeapon": false
+  },
+  "dusty_film_reel": {
+    "id": "dusty_film_reel",
+    "name": "Dusty Film Reel",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Trinket",
     "isWeapon": false
   },
   "electrical_components": {
@@ -1315,7 +1385,10 @@ export const ITEMS_WITH_RECIPES = {
       "plastic_parts": 8,
       "rubber_parts": 4
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Refined Material",
     "isWeapon": false
   },
@@ -1324,6 +1397,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Empty Wine Bottle",
     "rarity": "Common",
     "stackSize": 5,
+    "craftBench": "in_raid",
     "type": "Trinket",
     "isWeapon": false
   },
@@ -1357,9 +1431,17 @@ export const ITEMS_WITH_RECIPES = {
   "equalizer_blueprint": {
     "id": "equalizer_blueprint",
     "name": "Equalizer Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
+    "isWeapon": false
+  },
+  "espresso_machine_parts": {
+    "id": "espresso_machine_parts",
+    "name": "Espresso Machine Parts",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Trinket",
     "isWeapon": false
   },
   "esr_analyzer": {
@@ -1375,6 +1457,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Exodus Modules",
     "rarity": "Epic",
     "stackSize": 3,
+    "recipe": {
+      "ion_sputter": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -1411,7 +1497,10 @@ export const ITEMS_WITH_RECIPES = {
       "crude_explosives": 2,
       "oil": 2
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Refined Material",
     "isWeapon": false
   },
@@ -1431,7 +1520,7 @@ export const ITEMS_WITH_RECIPES = {
   "explosive_mine_blueprint": {
     "id": "explosive_mine_blueprint",
     "name": "Explosive Mine Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1452,7 +1541,7 @@ export const ITEMS_WITH_RECIPES = {
   "extended_barrel_blueprint": {
     "id": "extended_barrel_blueprint",
     "name": "Extended Barrel Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1486,7 +1575,7 @@ export const ITEMS_WITH_RECIPES = {
   "extended_light_mag_ii_blueprint": {
     "id": "extended_light_mag_ii_blueprint",
     "name": "Extended Light Mag II Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1507,7 +1596,7 @@ export const ITEMS_WITH_RECIPES = {
   "extended_light_mag_iii_blueprint": {
     "id": "extended_light_mag_iii_blueprint",
     "name": "Extended Light Mag III Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1541,7 +1630,7 @@ export const ITEMS_WITH_RECIPES = {
   "extended_medium_mag_ii_blueprint": {
     "id": "extended_medium_mag_ii_blueprint",
     "name": "Extended Medium Mag II Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1562,14 +1651,14 @@ export const ITEMS_WITH_RECIPES = {
   "extended_medium_mag_iii_blueprint": {
     "id": "extended_medium_mag_iii_blueprint",
     "name": "Extended Medium Mag III Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
   },
   "extended_shotgun_mag_i": {
     "id": "extended_shotgun_mag_i",
-    "name": " Extended Shotgun Mag I",
+    "name": "Extended Shotgun Mag I",
     "rarity": "Common",
     "stackSize": 1,
     "recipe": {
@@ -1596,7 +1685,7 @@ export const ITEMS_WITH_RECIPES = {
   "extended_shotgun_mag_ii_blueprint": {
     "id": "extended_shotgun_mag_ii_blueprint",
     "name": "Extended Shotgun Mag II Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1606,13 +1695,18 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Extended Shotgun Mag III",
     "rarity": "Rare",
     "stackSize": 1,
+    "recipe": {
+      "mod_components": 2,
+      "steel_spring": 5
+    },
+    "craftBench": "weapon_bench",
     "type": "Modification",
     "isWeapon": false
   },
   "extended_shotgun_mag_iii_blueprint": {
     "id": "extended_shotgun_mag_iii_blueprint",
     "name": "Extended Shotgun Mag III Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1622,6 +1716,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Fabric",
     "rarity": "Common",
     "stackSize": 50,
+    "recipe": {
+      "tattered_clothes": 1
+    },
+    "craftBench": "in_raid",
     "type": "Basic Material",
     "isWeapon": false
   },
@@ -1629,6 +1727,14 @@ export const ITEMS_WITH_RECIPES = {
     "id": "faded_photograph",
     "name": "Faded Photograph",
     "rarity": "Common",
+    "stackSize": 15,
+    "type": "Trinket",
+    "isWeapon": false
+  },
+  "familiar_duck": {
+    "id": "familiar_duck",
+    "name": "Familiar Duck",
+    "rarity": "Epic",
     "stackSize": 15,
     "type": "Trinket",
     "isWeapon": false
@@ -1643,8 +1749,8 @@ export const ITEMS_WITH_RECIPES = {
       "rubber_parts": 2
     },
     "craftBench": [
-      "workbench",
-      "weapon_bench"
+      "weapon_bench",
+      "workbench"
     ],
     "type": "Battle Rifle",
     "isWeapon": true
@@ -1654,6 +1760,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Ferro II",
     "rarity": "Common",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "Battle Rifle",
     "isWeapon": true
   },
@@ -1662,6 +1769,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Ferro III",
     "rarity": "Common",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "Battle Rifle",
     "isWeapon": true
   },
@@ -1670,6 +1778,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Ferro IV",
     "rarity": "Common",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "Battle Rifle",
     "isWeapon": true
   },
@@ -1702,6 +1811,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Fireball Burner",
     "rarity": "Uncommon",
     "stackSize": 3,
+    "recipe": {
+      "flame_spray": 1
+    },
+    "craftBench": "in_raid",
     "type": "Recyclable",
     "isWeapon": false
   },
@@ -1716,6 +1829,14 @@ export const ITEMS_WITH_RECIPES = {
     },
     "craftBench": "utility_bench",
     "type": "Quick Use",
+    "isWeapon": false
+  },
+  "firefly_burner": {
+    "id": "firefly_burner",
+    "name": "Firefly Burner",
+    "rarity": "Rare",
+    "stackSize": 3,
+    "type": "Recyclable",
     "isWeapon": false
   },
   "fireworks_box": {
@@ -1734,7 +1855,7 @@ export const ITEMS_WITH_RECIPES = {
   "fireworks_box_blueprint": {
     "id": "fireworks_box_blueprint",
     "name": "Fireworks Box Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1776,6 +1897,14 @@ export const ITEMS_WITH_RECIPES = {
     "type": "Quick Use",
     "isWeapon": false
   },
+  "flashy_duck": {
+    "id": "flashy_duck",
+    "name": "Flashy Duck",
+    "rarity": "Rare",
+    "stackSize": 15,
+    "type": "Trinket",
+    "isWeapon": false
+  },
   "flow_controller": {
     "id": "flow_controller",
     "name": "Flow Controller",
@@ -1796,7 +1925,7 @@ export const ITEMS_WITH_RECIPES = {
     "id": "fossilized_lightning",
     "name": "Fossilized Lightning",
     "rarity": "Epic",
-    "stackSize": 3,
+    "stackSize": 1,
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -1876,7 +2005,10 @@ export const ITEMS_WITH_RECIPES = {
       "gas_grenade": 1,
       "wires": 1
     },
-    "craftBench": "workbench",
+    "craftBench": [
+      "in_raid",
+      "workbench"
+    ],
     "type": "Quick Use",
     "isWeapon": false
   },
@@ -1896,7 +2028,7 @@ export const ITEMS_WITH_RECIPES = {
   "gas_mine_blueprint": {
     "id": "gas_mine_blueprint",
     "name": "Gas Mine Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1907,6 +2039,14 @@ export const ITEMS_WITH_RECIPES = {
     "rarity": "Epic",
     "stackSize": 3,
     "type": "Recyclable",
+    "isWeapon": false
+  },
+  "gentle_duck": {
+    "id": "gentle_duck",
+    "name": "Gentle Duck",
+    "rarity": "Uncommon",
+    "stackSize": 15,
+    "type": "Trinket",
     "isWeapon": false
   },
   "great_mullein": {
@@ -1932,7 +2072,7 @@ export const ITEMS_WITH_RECIPES = {
   "green_light_stick_blueprint": {
     "id": "green_light_stick_blueprint",
     "name": "Green Light Stick Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -1947,8 +2087,8 @@ export const ITEMS_WITH_RECIPES = {
       "plastic_parts": 5
     },
     "craftBench": [
-      "workbench",
-      "weapon_bench"
+      "weapon_bench",
+      "workbench"
     ],
     "type": "Pistol",
     "isWeapon": true
@@ -2022,14 +2162,17 @@ export const ITEMS_WITH_RECIPES = {
     "recipe": {
       "simple_gun_parts": 4
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Topside Material",
     "isWeapon": false
   },
   "heavy_gun_parts_blueprint": {
     "id": "heavy_gun_parts_blueprint",
     "name": "Heavy Gun Parts Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -2056,7 +2199,10 @@ export const ITEMS_WITH_RECIPES = {
       "durable_cloth": 1,
       "great_mullein": 1
     },
-    "craftBench": "med_station",
+    "craftBench": [
+      "in_raid",
+      "med_station"
+    ],
     "type": "Quick Use",
     "isWeapon": false
   },
@@ -2065,11 +2211,6 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Horizontal Grip",
     "rarity": "Epic",
     "stackSize": 1,
-    "recipe": {
-      "duct_tape": 5,
-      "mod_components": 2
-    },
-    "craftBench": "weapon_bench",
     "type": "Modification",
     "isWeapon": false
   },
@@ -2100,7 +2241,7 @@ export const ITEMS_WITH_RECIPES = {
   "hullcracker_blueprint": {
     "id": "hullcracker_blueprint",
     "name": "Hullcracker Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -2165,7 +2306,7 @@ export const ITEMS_WITH_RECIPES = {
   "il_toro_blueprint": {
     "id": "il_toro_blueprint",
     "name": "Il Toro Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -2266,17 +2407,9 @@ export const ITEMS_WITH_RECIPES = {
   "jolt_mine_blueprint": {
     "id": "jolt_mine_blueprint",
     "name": "Jolt Mine Blueprint",
-    "rarity": "Legendary",
-    "stackSize": 1,
-    "type": "Blueprint",
-    "isWeapon": false
-  },
-  "junior_outfit": {
-    "id": "junior_outfit",
-    "name": "Junior Outfit",
     "rarity": "Common",
     "stackSize": 1,
-    "type": "Cosmetic",
+    "type": "Blueprint",
     "isWeapon": false
   },
   "jupiter": {
@@ -2296,7 +2429,7 @@ export const ITEMS_WITH_RECIPES = {
   "jupiter_blueprint": {
     "id": "jupiter_blueprint",
     "name": "Jupiter Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -2311,8 +2444,8 @@ export const ITEMS_WITH_RECIPES = {
       "rubber_parts": 8
     },
     "craftBench": [
-      "workbench",
-      "weapon_bench"
+      "weapon_bench",
+      "workbench"
     ],
     "type": "Assault Rifle",
     "isWeapon": true
@@ -2322,6 +2455,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Kettle II",
     "rarity": "Common",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "Assault Rifle",
     "isWeapon": true
   },
@@ -2330,6 +2464,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Kettle III",
     "rarity": "Common",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "Assault Rifle",
     "isWeapon": true
   },
@@ -2338,6 +2473,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Kettle IV",
     "rarity": "Common",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "Assault Rifle",
     "isWeapon": true
   },
@@ -2361,7 +2497,7 @@ export const ITEMS_WITH_RECIPES = {
     "id": "laboratory_reagents",
     "name": "Laboratory Reagents",
     "rarity": "Rare",
-    "stackSize": 1,
+    "stackSize": 3,
     "type": "Recyclable",
     "isWeapon": false
   },
@@ -2402,6 +2538,14 @@ export const ITEMS_WITH_RECIPES = {
     "type": "Nature",
     "isWeapon": false
   },
+  "library_book": {
+    "id": "library_book",
+    "name": "Book",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Trinket",
+    "isWeapon": false
+  },
   "lidar_scanner": {
     "id": "lidar_scanner",
     "name": "Lidar Scanner",
@@ -2439,14 +2583,17 @@ export const ITEMS_WITH_RECIPES = {
     "recipe": {
       "simple_gun_parts": 4
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Topside Material",
     "isWeapon": false
   },
   "light_gun_parts_blueprint": {
     "id": "light_gun_parts_blueprint",
     "name": "Light Gun Parts Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -2461,8 +2608,9 @@ export const ITEMS_WITH_RECIPES = {
       "plastic_parts": 2
     },
     "craftBench": [
-      "workbench",
-      "explosives_bench"
+      "explosives_bench",
+      "in_raid",
+      "workbench"
     ],
     "type": "Quick Use",
     "isWeapon": false
@@ -2477,8 +2625,8 @@ export const ITEMS_WITH_RECIPES = {
       "plastic_parts": 4
     },
     "craftBench": [
-      "workbench",
-      "equipment_bench"
+      "equipment_bench",
+      "workbench"
     ],
     "type": "Shield",
     "isWeapon": false
@@ -2499,7 +2647,7 @@ export const ITEMS_WITH_RECIPES = {
   "lightweight_stock_blueprint": {
     "id": "lightweight_stock_blueprint",
     "name": "Lightweight Stock Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -2513,7 +2661,10 @@ export const ITEMS_WITH_RECIPES = {
       "chemicals": 5,
       "plastic_parts": 1
     },
-    "craftBench": "utility_bench",
+    "craftBench": [
+      "in_raid",
+      "utility_bench"
+    ],
     "type": "Quick Use",
     "isWeapon": false
   },
@@ -2559,6 +2710,27 @@ export const ITEMS_WITH_RECIPES = {
     "type": "Augment",
     "isWeapon": false
   },
+  "looting_mk3_safekeeper": {
+    "id": "looting_mk3_safekeeper",
+    "name": "Looting Mk. 3 (Safekeeper)",
+    "rarity": "Epic",
+    "stackSize": 1,
+    "recipe": {
+      "advanced_electrical_components": 2,
+      "processor": 3
+    },
+    "craftBench": "equipment_bench",
+    "type": "Augment",
+    "isWeapon": false
+  },
+  "looting_mk3_safekeeper_blueprint": {
+    "id": "looting_mk3_safekeeper_blueprint",
+    "name": "Looting Mk. 3 (Safekeeper) Blueprint",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Blueprint",
+    "isWeapon": false
+  },
   "looting_mk3_survivor": {
     "id": "looting_mk3_survivor",
     "name": "Looting Mk. 3 (Survivor)",
@@ -2584,7 +2756,7 @@ export const ITEMS_WITH_RECIPES = {
     "id": "lure_grenade",
     "name": "Lure Grenade",
     "rarity": "Uncommon",
-    "stackSize": 1,
+    "stackSize": 3,
     "recipe": {
       "electrical_components": 1,
       "speaker_component": 1
@@ -2596,7 +2768,7 @@ export const ITEMS_WITH_RECIPES = {
   "lure_grenade_blueprint": {
     "id": "lure_grenade_blueprint",
     "name": "Lure Grenade Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -2610,7 +2782,10 @@ export const ITEMS_WITH_RECIPES = {
       "lure_grenade": 1,
       "wires": 1
     },
-    "craftBench": "workbench",
+    "craftBench": [
+      "in_raid",
+      "workbench"
+    ],
     "type": "Quick Use",
     "isWeapon": false
   },
@@ -2619,6 +2794,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Magnet",
     "rarity": "Uncommon",
     "stackSize": 15,
+    "recipe": {
+      "industrial_magnet": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -2631,7 +2810,10 @@ export const ITEMS_WITH_RECIPES = {
       "advanced_mechanical_components": 2,
       "arc_motion_core": 2
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Refined Material",
     "isWeapon": false
   },
@@ -2641,6 +2823,14 @@ export const ITEMS_WITH_RECIPES = {
     "rarity": "Epic",
     "stackSize": 3,
     "type": "Recyclable",
+    "isWeapon": false
+  },
+  "major_aivas_mementos": {
+    "id": "major_aivas_mementos",
+    "name": "Major Aiva's Mementos",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Trinket",
     "isWeapon": false
   },
   "major_aivas_patch": {
@@ -2668,7 +2858,10 @@ export const ITEMS_WITH_RECIPES = {
       "metal_parts": 7,
       "rubber_parts": 3
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Refined Material",
     "isWeapon": false
   },
@@ -2693,14 +2886,17 @@ export const ITEMS_WITH_RECIPES = {
     "recipe": {
       "simple_gun_parts": 4
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Topside Material",
     "isWeapon": false
   },
   "medium_gun_parts_blueprint": {
     "id": "medium_gun_parts_blueprint",
     "name": "Medium Gun Parts Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -2731,6 +2927,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Metal Parts",
     "rarity": "Common",
     "stackSize": 50,
+    "recipe": {
+      "damaged_tick_pod": 1
+    },
+    "craftBench": "in_raid",
     "type": "Basic Material",
     "isWeapon": false
   },
@@ -2759,8 +2959,19 @@ export const ITEMS_WITH_RECIPES = {
       "mechanical_components": 2,
       "steel_spring": 2
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Refined Material",
+    "isWeapon": false
+  },
+  "moisture_meter": {
+    "id": "moisture_meter",
+    "name": "Moisture Meter",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Trinket",
     "isWeapon": false
   },
   "moss": {
@@ -2775,7 +2986,7 @@ export const ITEMS_WITH_RECIPES = {
     "id": "motor",
     "name": "Motor",
     "rarity": "Rare",
-    "stackSize": 1,
+    "stackSize": 3,
     "type": "Recyclable",
     "isWeapon": false
   },
@@ -2783,7 +2994,7 @@ export const ITEMS_WITH_RECIPES = {
     "id": "mushroom",
     "name": "Mushroom",
     "rarity": "Uncommon",
-    "stackSize": 1,
+    "stackSize": 10,
     "type": "Nature",
     "isWeapon": false
   },
@@ -2832,7 +3043,7 @@ export const ITEMS_WITH_RECIPES = {
   "muzzle_brake_ii_blueprint": {
     "id": "muzzle_brake_ii_blueprint",
     "name": "Muzzle Brake II Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -2853,7 +3064,7 @@ export const ITEMS_WITH_RECIPES = {
   "muzzle_brake_iii_blueprint": {
     "id": "muzzle_brake_iii_blueprint",
     "name": "Muzzle Brake III Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -2879,12 +3090,32 @@ export const ITEMS_WITH_RECIPES = {
     "type": "Recyclable",
     "isWeapon": false
   },
+  "nutrient_meter": {
+    "id": "nutrient_meter",
+    "name": "Nutrient Meter",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Trinket",
+    "isWeapon": false
+  },
   "oil": {
     "id": "oil",
     "name": "Oil",
     "rarity": "Uncommon",
     "stackSize": 15,
+    "recipe": {
+      "motor": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
+    "isWeapon": false
+  },
+  "old_world_books": {
+    "id": "old_world_books",
+    "name": "Old World Books",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Trinket",
     "isWeapon": false
   },
   "olives": {
@@ -2898,7 +3129,7 @@ export const ITEMS_WITH_RECIPES = {
   "osprey_blueprint": {
     "id": "osprey_blueprint",
     "name": "Osprey Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -2960,7 +3191,7 @@ export const ITEMS_WITH_RECIPES = {
   "padded_stock_blueprint": {
     "id": "padded_stock_blueprint",
     "name": "Padded Stock Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -2994,11 +3225,23 @@ export const ITEMS_WITH_RECIPES = {
     "type": "Quick Use",
     "isWeapon": false
   },
+  "pilgrims_peak_security_code": {
+    "id": "pilgrims_peak_security_code",
+    "name": "Pilgrim's Peak Security Code",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Key",
+    "isWeapon": false
+  },
   "plastic_parts": {
     "id": "plastic_parts",
     "name": "Plastic Parts",
     "rarity": "Common",
     "stackSize": 50,
+    "recipe": {
+      "surge_shield_recharger": 1
+    },
+    "craftBench": "in_raid",
     "type": "Basic Material",
     "isWeapon": false
   },
@@ -3032,6 +3275,14 @@ export const ITEMS_WITH_RECIPES = {
     "rarity": "Rare",
     "stackSize": 1,
     "type": "Recyclable",
+    "isWeapon": false
+  },
+  "possibly_toxic_plant": {
+    "id": "possibly_toxic_plant",
+    "name": "Possibly Toxic Plant",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Trinket",
     "isWeapon": false
   },
   "poster_of_natural_wonders": {
@@ -3075,7 +3326,10 @@ export const ITEMS_WITH_RECIPES = {
       "advanced_electrical_components": 2,
       "arc_circuitry": 2
     },
-    "craftBench": "refiner",
+    "craftBench": [
+      "in_raid",
+      "refiner"
+    ],
     "type": "Refined Material",
     "isWeapon": false
   },
@@ -3092,7 +3346,19 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Processor",
     "rarity": "Rare",
     "stackSize": 5,
+    "recipe": {
+      "projector": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
+    "isWeapon": false
+  },
+  "project_heartwood_blueprints": {
+    "id": "project_heartwood_blueprints",
+    "name": "Project Heartwood Blueprints",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Trinket",
     "isWeapon": false
   },
   "projector": {
@@ -3119,7 +3385,7 @@ export const ITEMS_WITH_RECIPES = {
   "pulse_mine_blueprint": {
     "id": "pulse_mine_blueprint",
     "name": "Pulse Mine Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -3148,14 +3414,6 @@ export const ITEMS_WITH_RECIPES = {
     "type": "Recyclable",
     "isWeapon": false
   },
-  "radio_renegade": {
-    "id": "radio_renegade",
-    "name": "Radio Renegade",
-    "rarity": "Common",
-    "stackSize": 1,
-    "type": "Outfit",
-    "isWeapon": false
-  },
   "raider_hatch_key": {
     "id": "raider_hatch_key",
     "name": "Raider Hatch Key",
@@ -3165,7 +3423,18 @@ export const ITEMS_WITH_RECIPES = {
       "advanced_electrical_components": 1,
       "sensors": 3
     },
-    "craftBench": "utility_bench",
+    "craftBench": [
+      "in_raid",
+      "utility_bench"
+    ],
+    "type": "Key",
+    "isWeapon": false
+  },
+  "raiders_refuge_security_code": {
+    "id": "raiders_refuge_security_code",
+    "name": "Raider's Refuge Security Code",
+    "rarity": "Common",
+    "stackSize": 1,
     "type": "Key",
     "isWeapon": false
   },
@@ -3240,9 +3509,17 @@ export const ITEMS_WITH_RECIPES = {
   "red_light_stick_blueprint": {
     "id": "red_light_stick_blueprint",
     "name": "Red Light Stick Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
+    "isWeapon": false
+  },
+  "reinforced_reception_security_code": {
+    "id": "reinforced_reception_security_code",
+    "name": "Reinforced Reception Security Code",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Key",
     "isWeapon": false
   },
   "remote_control": {
@@ -3269,7 +3546,7 @@ export const ITEMS_WITH_RECIPES = {
   "remote_raider_flare_blueprint": {
     "id": "remote_raider_flare_blueprint",
     "name": "Remote Raider Flare Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -3360,6 +3637,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Rope",
     "rarity": "Rare",
     "stackSize": 5,
+    "recipe": {
+      "zipline": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -3400,6 +3681,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Rubber Parts",
     "rarity": "Common",
     "stackSize": 50,
+    "recipe": {
+      "rubber_pad": 1
+    },
+    "craftBench": "in_raid",
     "type": "Basic Material",
     "isWeapon": false
   },
@@ -3487,7 +3772,7 @@ export const ITEMS_WITH_RECIPES = {
     "id": "rusted_tools",
     "name": "Rusted Tools",
     "rarity": "Rare",
-    "stackSize": 1,
+    "stackSize": 3,
     "type": "Recyclable",
     "isWeapon": false
   },
@@ -3523,7 +3808,7 @@ export const ITEMS_WITH_RECIPES = {
   "seeker_grenade_blueprint": {
     "id": "seeker_grenade_blueprint",
     "name": "Seeker Grenade Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -3533,6 +3818,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Sensors",
     "rarity": "Rare",
     "stackSize": 5,
+    "recipe": {
+      "broken_handheld_radio": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -3549,6 +3838,11 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Shaker",
     "rarity": "Uncommon",
     "stackSize": 1,
+    "recipe": {
+      "assorted_seeds": 7,
+      "canister": 1
+    },
+    "craftBench": "in_raid",
     "type": "Quick Use",
     "isWeapon": false
   },
@@ -3562,9 +3856,9 @@ export const ITEMS_WITH_RECIPES = {
       "rubber_parts": 5
     },
     "craftBench": [
-      "workbench",
+      "in_raid",
       "med_station",
-      "in_raid"
+      "workbench"
     ],
     "type": "Quick Use",
     "isWeapon": false
@@ -3611,7 +3905,7 @@ export const ITEMS_WITH_RECIPES = {
   "shotgun_choke_ii_blueprint": {
     "id": "shotgun_choke_ii_blueprint",
     "name": "Shotgun Choke II Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -3632,7 +3926,7 @@ export const ITEMS_WITH_RECIPES = {
   "shotgun_choke_iii_blueprint": {
     "id": "shotgun_choke_iii_blueprint",
     "name": "Shotgun Choke III Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -3653,7 +3947,7 @@ export const ITEMS_WITH_RECIPES = {
   "shotgun_silencer_blueprint": {
     "id": "shotgun_silencer_blueprint",
     "name": "Shotgun Silencer Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -3664,7 +3958,8 @@ export const ITEMS_WITH_RECIPES = {
     "rarity": "Rare",
     "stackSize": 5,
     "recipe": {
-      "advanced_electrical_components": 1,
+      "electrical_components": 1,
+      "hornet_driver": 1,
       "voltage_converter": 1
     },
     "craftBench": "explosives_bench",
@@ -3674,7 +3969,7 @@ export const ITEMS_WITH_RECIPES = {
   "showstopper_blueprint": {
     "id": "showstopper_blueprint",
     "name": "Showstopper Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -3724,7 +4019,7 @@ export const ITEMS_WITH_RECIPES = {
   "silencer_i_blueprint": {
     "id": "silencer_i_blueprint",
     "name": "Silencer I Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -3745,7 +4040,7 @@ export const ITEMS_WITH_RECIPES = {
   "silencer_ii_blueprint": {
     "id": "silencer_ii_blueprint",
     "name": "Silencer II Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -3755,7 +4050,6 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Silencer III",
     "rarity": "Epic",
     "stackSize": 1,
-    "craftBench": "weapon_bench",
     "type": "Modification",
     "isWeapon": false
   },
@@ -3780,6 +4074,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Simple Gun Parts",
     "rarity": "Uncommon",
     "stackSize": 10,
+    "recipe": {
+      "il_toro_ii": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -3787,7 +4085,7 @@ export const ITEMS_WITH_RECIPES = {
     "id": "smoke_grenade",
     "name": "Smoke Grenade",
     "rarity": "Rare",
-    "stackSize": 3,
+    "stackSize": 5,
     "recipe": {
       "canister": 1,
       "chemicals": 14
@@ -3799,7 +4097,7 @@ export const ITEMS_WITH_RECIPES = {
   "smoke_grenade_blueprint": {
     "id": "smoke_grenade_blueprint",
     "name": "Smoke Grenade Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -3813,7 +4111,10 @@ export const ITEMS_WITH_RECIPES = {
       "smoke_grenade": 1,
       "wires": 1
     },
-    "craftBench": "workbench",
+    "craftBench": [
+      "in_raid",
+      "workbench"
+    ],
     "type": "Quick Use",
     "isWeapon": false
   },
@@ -3847,7 +4148,7 @@ export const ITEMS_WITH_RECIPES = {
   "snap_hook_blueprint": {
     "id": "snap_hook_blueprint",
     "name": "Snap Hook Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -3905,6 +4206,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Speaker Component",
     "rarity": "Rare",
     "stackSize": 5,
+    "recipe": {
+      "noisemaker": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -3920,7 +4225,7 @@ export const ITEMS_WITH_RECIPES = {
     "id": "spectrum_analyzer",
     "name": "Spectrum Analyzer",
     "rarity": "Epic",
-    "stackSize": 1,
+    "stackSize": 3,
     "type": "Recyclable",
     "isWeapon": false
   },
@@ -3947,7 +4252,7 @@ export const ITEMS_WITH_RECIPES = {
     "stackSize": 1,
     "recipe": {
       "duct_tape": 1,
-      "rubber_parts": 6
+      "rubber_parts": 7
     },
     "craftBench": "weapon_bench",
     "type": "Modification",
@@ -3969,7 +4274,7 @@ export const ITEMS_WITH_RECIPES = {
   "stable_stock_ii_blueprint": {
     "id": "stable_stock_ii_blueprint",
     "name": "Stable Stock II Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -3990,9 +4295,17 @@ export const ITEMS_WITH_RECIPES = {
   "stable_stock_iii_blueprint": {
     "id": "stable_stock_iii_blueprint",
     "name": "Stable Stock III Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
+    "isWeapon": false
+  },
+  "stack_of_movie_tapes": {
+    "id": "stack_of_movie_tapes",
+    "name": "Stack of Movie Tapes",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Trinket",
     "isWeapon": false
   },
   "statuette": {
@@ -4008,6 +4321,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Steel Spring",
     "rarity": "Uncommon",
     "stackSize": 15,
+    "recipe": {
+      "cooling_coil": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -4066,8 +4383,8 @@ export const ITEMS_WITH_RECIPES = {
       "rubber_parts": 4
     },
     "craftBench": [
-      "workbench",
-      "weapon_bench"
+      "weapon_bench",
+      "workbench"
     ],
     "type": "SMG",
     "isWeapon": true
@@ -4077,22 +4394,25 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Stitcher II",
     "rarity": "Common",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "SMG",
     "isWeapon": true
   },
   "stitcher_iii": {
     "id": "stitcher_iii",
     "name": "Stitcher III",
-    "rarity": "Uncommon",
+    "rarity": "Common",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "SMG",
     "isWeapon": true
   },
   "stitcher_iv": {
     "id": "stitcher_iv",
     "name": "Stitcher IV",
-    "rarity": "Uncommon",
+    "rarity": "Common",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "SMG",
     "isWeapon": true
   },
@@ -4122,6 +4442,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Synthesized Fuel",
     "rarity": "Rare",
     "stackSize": 5,
+    "recipe": {
+      "rocket_thruster": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -4130,6 +4454,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Syringe",
     "rarity": "Rare",
     "stackSize": 5,
+    "recipe": {
+      "rusted_shut_medical_kit": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -4175,7 +4503,7 @@ export const ITEMS_WITH_RECIPES = {
   "tactical_mk3_defensive_blueprint": {
     "id": "tactical_mk3_defensive_blueprint",
     "name": "Tactical Mk. 3 (Defensive) Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4196,7 +4524,28 @@ export const ITEMS_WITH_RECIPES = {
   "tactical_mk3_healing_blueprint": {
     "id": "tactical_mk3_healing_blueprint",
     "name": "Tactical Mk. 3 (Healing) Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
+    "stackSize": 1,
+    "type": "Blueprint",
+    "isWeapon": false
+  },
+  "tactical_mk3_revival": {
+    "id": "tactical_mk3_revival",
+    "name": "Tactical Mk. 3 (Revival)",
+    "rarity": "Epic",
+    "stackSize": 1,
+    "recipe": {
+      "advanced_electrical_components": 2,
+      "processor": 3
+    },
+    "craftBench": "equipment_bench",
+    "type": "Augment",
+    "isWeapon": false
+  },
+  "tactical_mk3_revival_blueprint": {
+    "id": "tactical_mk3_revival_blueprint",
+    "name": "Tactical Mk. 3 (Revival) Blueprint",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4217,7 +4566,7 @@ export const ITEMS_WITH_RECIPES = {
   "tagging_grenade_blueprint": {
     "id": "tagging_grenade_blueprint",
     "name": "Tagging Grenade Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4234,7 +4583,7 @@ export const ITEMS_WITH_RECIPES = {
     "id": "tattered_clothes",
     "name": "Tattered Clothes",
     "rarity": "Uncommon",
-    "stackSize": 1,
+    "stackSize": 3,
     "type": "Recyclable",
     "isWeapon": false
   },
@@ -4249,7 +4598,7 @@ export const ITEMS_WITH_RECIPES = {
   "tempest_blueprint": {
     "id": "tempest_blueprint",
     "name": "Tempest Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4338,7 +4687,7 @@ export const ITEMS_WITH_RECIPES = {
   "torrente_blueprint": {
     "id": "torrente_blueprint",
     "name": "Torrente Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4362,6 +4711,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Torrente II",
     "rarity": "Rare",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "LMG",
     "isWeapon": true
   },
@@ -4370,6 +4720,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Torrente III",
     "rarity": "Rare",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "LMG",
     "isWeapon": true
   },
@@ -4378,6 +4729,7 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Torrente IV",
     "rarity": "Rare",
     "stackSize": 1,
+    "craftBench": "weapon_bench",
     "type": "LMG",
     "isWeapon": true
   },
@@ -4387,7 +4739,8 @@ export const ITEMS_WITH_RECIPES = {
     "rarity": "Rare",
     "stackSize": 3,
     "recipe": {
-      "explosive_compound": 1,
+      "crude_explosives": 2,
+      "firefly_burner": 1,
       "synthesized_fuel": 1
     },
     "craftBench": "explosives_bench",
@@ -4397,7 +4750,7 @@ export const ITEMS_WITH_RECIPES = {
   "trailblazer_blueprint": {
     "id": "trailblazer_blueprint",
     "name": "Trailblazer Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4418,9 +4771,17 @@ export const ITEMS_WITH_RECIPES = {
   "trigger_nade_blueprint": {
     "id": "trigger_nade_blueprint",
     "name": "Trigger Nade Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
+    "isWeapon": false
+  },
+  "tropical_duck": {
+    "id": "tropical_duck",
+    "name": "Tropical Duck",
+    "rarity": "Uncommon",
+    "stackSize": 15,
+    "type": "Trinket",
     "isWeapon": false
   },
   "turbo_pump": {
@@ -4435,7 +4796,7 @@ export const ITEMS_WITH_RECIPES = {
     "id": "unusable_weapon",
     "name": "Unusable Weapon",
     "rarity": "Rare",
-    "stackSize": 1,
+    "stackSize": 3,
     "type": "Recyclable",
     "isWeapon": false
   },
@@ -4450,7 +4811,7 @@ export const ITEMS_WITH_RECIPES = {
   "venator_blueprint": {
     "id": "venator_blueprint",
     "name": "Venator Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4525,7 +4886,7 @@ export const ITEMS_WITH_RECIPES = {
   "vertical_grip_ii_blueprint": {
     "id": "vertical_grip_ii_blueprint",
     "name": "Vertical Grip II Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4546,7 +4907,7 @@ export const ITEMS_WITH_RECIPES = {
   "vertical_grip_iii_blueprint": {
     "id": "vertical_grip_iii_blueprint",
     "name": "Vertical Grip III Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4568,13 +4929,14 @@ export const ITEMS_WITH_RECIPES = {
       "antiseptic": 2,
       "syringe": 1
     },
+    "craftBench": "med_station",
     "type": "Quick Use",
     "isWeapon": false
   },
   "vita_shot_blueprint": {
     "id": "vita_shot_blueprint",
     "name": "Vita Shot Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4586,7 +4948,8 @@ export const ITEMS_WITH_RECIPES = {
     "stackSize": 1,
     "recipe": {
       "antiseptic": 3,
-      "canister": 1
+      "canister": 1,
+      "tick_pod": 1
     },
     "craftBench": "med_station",
     "type": "Quick Use",
@@ -4595,7 +4958,7 @@ export const ITEMS_WITH_RECIPES = {
   "vita_spray_blueprint": {
     "id": "vita_spray_blueprint",
     "name": "Vita Spray Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4613,13 +4976,17 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Voltage Converter",
     "rarity": "Rare",
     "stackSize": 5,
+    "recipe": {
+      "signal_amplifier": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
   "vulcano_blueprint": {
     "id": "vulcano_blueprint",
     "name": "Vulcano Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4694,6 +5061,10 @@ export const ITEMS_WITH_RECIPES = {
     "name": "Wires",
     "rarity": "Uncommon",
     "stackSize": 15,
+    "recipe": {
+      "power_cable": 1
+    },
+    "craftBench": "in_raid",
     "type": "Topside Material",
     "isWeapon": false
   },
@@ -4704,7 +5075,8 @@ export const ITEMS_WITH_RECIPES = {
     "stackSize": 1,
     "recipe": {
       "arc_motion_core": 2,
-      "explosive_compound": 3
+      "explosive_compound": 1,
+      "rocketeer_driver": 1
     },
     "craftBench": "explosives_bench",
     "type": "Quick Use",
@@ -4713,7 +5085,7 @@ export const ITEMS_WITH_RECIPES = {
   "wolfpack_blueprint": {
     "id": "wolfpack_blueprint",
     "name": "Wolfpack Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4733,7 +5105,7 @@ export const ITEMS_WITH_RECIPES = {
   "yellow_light_stick_blueprint": {
     "id": "yellow_light_stick_blueprint",
     "name": "Yellow Light Stick Blueprint",
-    "rarity": "Legendary",
+    "rarity": "Common",
     "stackSize": 1,
     "type": "Blueprint",
     "isWeapon": false
@@ -4742,7 +5114,7 @@ export const ITEMS_WITH_RECIPES = {
     "id": "zipline",
     "name": "Zipline",
     "rarity": "Rare",
-    "stackSize": 1,
+    "stackSize": 3,
     "recipe": {
       "mechanical_components": 1,
       "rope": 1
